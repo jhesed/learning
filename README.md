@@ -5,7 +5,7 @@ This repository will also include self exercises from different education body l
   * Edx
   
 <b>Finished course(s):</b>
-  * Game Development using Modern Platforms (by <i>Michigan State University</i>)
+  * Game Development using Modern Platforms (by <i> Coursera and Michigan State University</i>)
   
 <b>Ongoing course(s):</b>
-  * Intro to Hadoop and MapReduce (by <i>Cloudera</i>) 
+  * Intro to Hadoop and MapReduce (by <i>Udacity and Cloudera</i>) 
