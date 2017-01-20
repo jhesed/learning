@@ -1,0 +1,29 @@
+# List content of HDFS
+hadoop fs -ls
+
+# Adds file to HDFS
+hadoop fs -put <filename i.e. purchases.txt>
+
+# Hadoop commands are almost identical to linux commands (i.e. mv, mkdir, rm, etc.) 
+hadoop fs -<linux command> 
+
+# Add them to group instead of using default just to be cleaner
+hadoop fs -put purchases.txt <group i.e. myinput>
+
+# Use jar i.e. to use Python etc.
+hadoop jar <hadoop file library?>
+
+# Run it
+jar -mapper mapper.py -reducer reducer.py -file mapper.py -file reducer.py -input <group name i.e. myinput> -output <output name/directory, i.e. joboutput>
+
+# List content of results
+hadoop -fs -ls joboutput
+
+# View results
+hadoop -fs -cat joboutput/part-00000 | less
+
+# Copy results to local directory
+hadoop -fs -get joboutput/part-00000 <my local file in system> (copy to local disk)
+
+# Cloudera created aliases to shortcut things
+hs mapper.py reducer.py myinput joboutput
