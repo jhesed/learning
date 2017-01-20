@@ -1,1 +1,11 @@
-Repository that contains pieces of code mainly for learning and experimenting
+Contains pieces of code mainly used for <u>learning</u>.
+This repository will also include self exercises from different education body like:
+  * Coursera
+  * Udacity
+  * Edx
+  
+<b>Finished course(s):</b>
+  * Game Development using Modern Platforms (by <i> Coursera and Michigan State University</i>)
+  
+<b>Ongoing course(s):</b>
+  * Intro to Hadoop and MapReduce (by <i>Udacity and Cloudera</i>) 
