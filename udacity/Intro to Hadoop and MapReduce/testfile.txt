@@ -1,0 +1,6 @@
+2012-01-01  12:01   Rizal   Music   12.99   Amex
+2012-01-01  12:01   Makati  Music   12.99   Jsos
+2012-01-02  12:01   Rizal   Music   12.99   Jsos
+2012-01-03  12:01   Taguig  Music   12.99   Jjhsoftware
+2012-01-04  12:01   Rizal   Music   12.99   Amex
+2012-01-05  12:01   Makati  Music   12.99   Amex
