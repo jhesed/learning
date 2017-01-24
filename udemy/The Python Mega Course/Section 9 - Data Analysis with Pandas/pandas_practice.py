@@ -8,7 +8,8 @@ Date: 2017-01-24
 Section 9 Contents:
     53. What is Pandas?
     54. Getting Started with Pandas
-    55. Getting Started with Jupyter Notebooks
+    # run: Jupyter notebook, very nice on data analysis and web scraping
+    55. Getting Started with Jupyter Notebooks 
     56. Loading Data in Python from CSV, Excel, TCT and JSOS files
     57. Indexing and Slicing Dataframes
     58. Dropping Dataframe Columns and rows

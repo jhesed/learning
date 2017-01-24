@@ -77,4 +77,4 @@ def merge_files(directory="."):
 
 # Stand alone test
 if __name__ == '__main__':
-    merge_files('exercise-file-samples')
+    merge_files('res')
