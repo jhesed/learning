@@ -2,7 +2,7 @@
 Udemy: The Python Mega Course:  Building 10 Real World Applications
 Section 9: Data Analysis with Pandas
 
-Dropping DataFrame columns and rows
+Updating and Adding Columns 
 
 Author: Jhesed Tacadena
 Date: 2017-01-24
