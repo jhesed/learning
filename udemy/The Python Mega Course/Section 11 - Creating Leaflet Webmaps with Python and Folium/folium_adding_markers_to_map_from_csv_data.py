@@ -24,6 +24,25 @@ Section 11 Contents:
 import pandas
 import folium
 
+
+# -----------------------------------------------------------------------------
+def determine_color(elev):
+    """
+    Determines color based on elevation
+    """
+
+    # Decide the marker color
+    if elev in range(1, 1000):
+        marker_color = 'green'
+    elif elev in range(1000, 3000):
+        marker_color = 'orange'
+    else:
+        marker_color = 'red'                
+
+    return marker_color
+
+
+# -----------------------------------------------------------------------------
 if __name__ == '__main__':
     
     # Create the folium map object
@@ -38,10 +57,11 @@ if __name__ == '__main__':
 
     # Adding map markers from csv
 
-    for lat, lon, name in zip(df['LAT'], df['LON'], df['NAME']): 
+    for lat, lon, name, elev in zip(df['LAT'], df['LON'], 
+                                    df['NAME'], df['ELEV']): 
 
         map.simple_marker(location=[lat, lon], popup=name,
-                          marker_color='red')
+                          marker_color=determine_color(elev))
     
     # Create the html file with the actual map
     map.create_map(path='folium_test.html')
