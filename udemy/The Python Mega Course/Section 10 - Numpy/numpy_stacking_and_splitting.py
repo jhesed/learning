@@ -7,7 +7,7 @@ Stacking and Splitting
 Author: Jhesed Tacadena
 Date: 2017-01-26
 
-Section 9 Contents:
+Section 10 Contents:
     61. What is Numpy?
     62. Installing OpenCV (cv2)
     63. Images to Numpy and Vice-versa
