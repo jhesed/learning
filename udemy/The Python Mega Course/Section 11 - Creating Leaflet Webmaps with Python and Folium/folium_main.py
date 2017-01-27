@@ -3,6 +3,7 @@ Udemy: The Python Mega Course:  Building 10 Real World Applications
 Section 11: Creating Leaflet Webmaps with Python and Folium
 
 Adding Markers to the map from CSV Data
+Adding a Choropleth Map from GeoJson
 
 Author: Jhesed Tacadena
 Date: 2017-01-26
@@ -18,7 +19,14 @@ Section 11 Contents:
     73. Adjusting the Code for the Latest Version of Folium
     74. Adding a Choropleth Map from GeoJson
     75. Adding a Layer Control Panel
-    
+
+Note:
+    The files in res/Shapefile can be converted to GeoJson in 
+    https://ogre.adc4gis.com. Use the following parameters:
+        Source SRS: EPSG:4326
+        Target SRS: EPSG:4326    
+    The output file was saved as res/World_population.geojson
+    THe output file can be named as .geojson and .json
 """
 
 import pandas
@@ -57,13 +65,32 @@ if __name__ == '__main__':
                      zoom_start=4,
                      tiles='Stamen Terrain')
 
-    # Adding map markers from csv
+    # Create a feature group
+    fg = folium.FeatureGroup(name='Volcano Locations')
 
+    # Adding map markers from csv
     for lat, lon, name, elev in zip(df['LAT'], df['LON'], 
                                     df['NAME'], df['ELEV']): 
 
-        map.simple_marker(location=[lat, lon], popup=name,
-                          marker_color=determine_color(elev))
-    
+        # Add the child to the feature group
+        fg.add_child(folium.Marker(
+            location=[lat, lon], popup=name,
+            icon=folium.Icon(color=determine_color(elev))))
+
+    # add the volcano feature group
+    map.add_child(fg)
+
+    # Load data from geojson file to create the polygon map
+    map.add_child(folium.GeoJson(
+        data=open('res/Shapefile/World_population.geojson'),
+        name='World Application', 
+        style_function=lambda x: {'fillColor': 'green' if \
+            x['properties']['POP2005'] <= 10000000 else 'orange' \
+            if 10000000 < x['properties']['POP2005'] < 20000000 else 'red'}))
+
+    # Add layer control.  This is used to switch on/off the children
+
+    map.add_child(folium.LayerControl())
+
     # Create the html file with the actual map
-    map.create_map(path='folium_test.html')
+    map.save(outfile='folium_test_main.html')
