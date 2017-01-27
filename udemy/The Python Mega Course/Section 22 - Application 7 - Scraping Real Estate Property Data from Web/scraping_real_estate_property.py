@@ -91,7 +91,8 @@ if __name__ == '__main__':
         # Retrieve full bath info (which is not present all the time)
         try:
             # Retrieve only the number of full bath
-            full_bath_count = item.find('span', {'class': 'infoValueFullBath'}).find('b').text
+            full_bath_count = item.find(
+                'span', {'class': 'infoValueFullBath'}).find('b').text
             print(full_bath_count)
 
         except:
@@ -99,7 +100,8 @@ if __name__ == '__main__':
 
         try:
             # Retrieve only the number of half bath
-            half_bath_count = item.find('span', {'class': 'infoValueHalfBath'}).find('b').text
+            half_bath_count = item.find(
+                'span', {'class': 'infoValueHalfBath'}).find('b').text
             print(half_bath_count)
 
         except:
@@ -108,3 +110,22 @@ if __name__ == '__main__':
 
         # New line for viewing purpose
         print('')
+
+        # ... SECTIONS ::
+        # 146: Extracting Elements with no Unique Identifiers
+
+        for column_group in item.find_all('div', {'class': 'columnGroup'}):
+            # print(column_group)
+
+            for feature_group, feature_name in zip(
+                column_group.find_all('span', {'class': 'featureGroup'}),
+                column_group.find_all('span', {'class': 'featureName'})):
+
+                if 'lot size' in feature_group.text.lower():
+                    lot_size = feature_name.text
+                else:
+                    lot_size = None
+                print(lot_size)
+
+
+
