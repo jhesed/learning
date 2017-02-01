@@ -1,0 +1,23 @@
+# Notes on Django Setup
+# Author: Jhesed D. Tacadena
+# Date: February 1, 2017
+
+
+# Virtual environment setup
+python -m virtualenv envtest
+
+# note: envtest here refers to the name of the virtual environment
+source envtest/bin/activate  # Linux/Mac
+envtest/Scripts/activate    # Windows
+
+# Installing Django
+pip install --index-url=http://pypi.python.org/simple/ --trusted-host pypi.python.org Django==1.10
+
+# This is amazing shortcut for installing dependencies
+# which will automatically install every library listed in it
+pip install -r requirements.txt
+
+# Django commands
+django-admin startproject Blog  # Create project Blog
+python manage.py migrate  # Migrate content of settings.py
+python manage.py createsuperuser # Creates SU

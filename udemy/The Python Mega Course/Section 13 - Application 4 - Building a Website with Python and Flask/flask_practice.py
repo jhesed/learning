@@ -17,6 +17,10 @@ Section 14 Contents:
 
 Notes:
     * To run virtual env: `python -m venv virtual`
+    * Uses Heroku as the test deployment server:
+      `https://dashboard.heroku.com/`
+    * Download heroku toolbelt = used to communicate with Heroku 
+      via commandline: `https://devcenter.heroku.com/articles/heroku-cli`
 
 """
 
