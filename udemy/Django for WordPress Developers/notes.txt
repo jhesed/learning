@@ -20,4 +20,11 @@ pip install -r requirements.txt
 # Django commands
 django-admin startproject Blog  # Create project Blog
 python manage.py migrate  # Migrate content of settings.py
-python manage.py createsuperuser # Creates SU
+python manage.py createsuperuser # Access admin page on http://127.0.0.1:8000/admin
+# Call this when creating/updating a model. It will prepare migration files. 
+# Then call migrate again
+python manage.py makemigrations <appname-not required> 
+
+python manage.py startapp blog
+
+python manage.py runserver
