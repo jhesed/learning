@@ -21,5 +21,9 @@ from article import views as article_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', article_view.home),
+    # Pass the username regex to the name
+    url(r'^username/(?P<username>[-\w]+)/$', 
+        article_view.home, name='username'),
+    url(r'post/single/(?P<single>[-\w]+)/$', 
+        article_view.single, name='single')
 ]

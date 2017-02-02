@@ -1,0 +1,12 @@
+This is a test page 
+
+<h3>Hi <i>{{current_user}}</i></h3>
+
+<h4>Articles:</h4>
+<ul>
+    {% for post in posts %}
+        <li>
+            <a href="{% url 'single' post.id %}">{{post.title}}</a>
+        </li>
+    {% endfor %}
+</ul>
