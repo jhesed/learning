@@ -14,4 +14,18 @@ This is a test page
     {% endfor %}
 </ul>
 
+{% if posts.has_previous %}
+    <div class="pagination">
+        <a href="?page={{posts.previous_page_number}}">Prev</a>
+    </div>
+{% endif %}
+
+Page {{posts.number}} of {{posts.paginator.num_pages}}
+
+{% if posts.has_next %}
+    <div class="pagination">
+        <a href="?page={{posts.next_page_number}}">Next</a>
+    </div>
+{% endif %}
+
 {% include 'partials/footer.html' %}

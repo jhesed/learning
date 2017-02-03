@@ -18,7 +18,7 @@ def home(request):
 
     # paginate on the second parameter. i.e. 
     # value of 2 will paginate every 2 posts
-    paginator = Paginator(post_list, 2)
+    paginator = Paginator(post_list, 1)
 
     # `page` is embedded automatically by Paginator class
     page = request.GET.get('page')
