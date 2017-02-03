@@ -14,9 +14,12 @@ class Post(models.Model):
     """
 
     author = models.ForeignKey('auth.User')  # Pulls user names from User table
-    title = models.CharField(max_length=150, null=True)
-    text = models.TextField(null=True)
+    title = models.CharField(max_length=150, null=False)
+    text = models.TextField(null=False)
     created_date = models.DateTimeField(default=timezone.now)
+    
+    # Another foreign key
+    category = models.ForeignKey('article.Category', blank=True, null=True)  
 
     # -------------------------------------------------------------------------
     def __str__(self):
@@ -25,3 +28,32 @@ class Post(models.Model):
         of the "Post object" string
         """
         return self.title
+
+# -------------------------------------------------------------------------
+class Category(models.Model):
+    """
+    Defined the Category model class
+    """
+
+    title = models.CharField(max_length=150)    
+    slug = models.CharField(max_length=150)    
+    # Allow Category to have a parent category
+    parent = models.ForeignKey('article.Category', blank=True, null=True)
+    
+    # -------------------------------------------------------------------------
+    def __str__(self):
+        """
+        This will allow Django admin to return the title instead
+        of the "Post object" string
+        """
+        return self.title
+
+    # -------------------------------------------------------------------------
+    @staticmethod
+    def list_categories():
+        """
+        Return list of categoreis
+        """
+        return Category.objects.all()
+
+    

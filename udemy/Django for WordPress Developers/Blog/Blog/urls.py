@@ -22,7 +22,9 @@ from article import views as article_view
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    url(r'home', article_view.home),
-    url(r'post/single/(?P<single>[-\w]+)/$', 
+    url(r'^$', article_view.home),
+    url(r'post/(?P<single>[-\w]+)/$', 
         article_view.single, name='single'),
+    url(r'category/(?P<category>[-\w]+)/$', 
+        article_view.archive, name='category'),
 ]
