@@ -17,9 +17,12 @@ class Post(models.Model):
     title = models.CharField(max_length=150, null=False)
     text = models.TextField(null=False)
     created_date = models.DateTimeField(default=timezone.now)
-    
-    # Another foreign key
-    category = models.ForeignKey('article.Category', blank=True, null=True)  
+    # move this to /media etc. in the future
+    image = models.FileField(blank=True, upload_to='images')
+
+    # Add a many to many database filed
+    category = models.ManyToManyField('article.Category', 
+        blank=True, null=True)  
 
     # -------------------------------------------------------------------------
     def __str__(self):

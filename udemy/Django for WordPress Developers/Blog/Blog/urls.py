@@ -16,6 +16,8 @@ Including another URLconf
 
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings  # gives access to settings.py
+from django.views import static as django_static
 
 from article import views as article_view
 
@@ -23,8 +25,12 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^$', article_view.home),
-    url(r'post/(?P<single>[-\w]+)/$', 
-        article_view.single, name='single'),
-    url(r'category/(?P<category>[-\w]+)/$', 
-        article_view.archive, name='category'),
+    url(r'post/(?P<single>[-\w]+)/$', article_view.single, name='single'),
+    url(r'category/(?P<category>[-\w]+)/$', article_view.archive, name='category'),
+
+    # images folder, absolute path directory is necessary. 
+    # special django command; settings.base_dir ust
+    url(r'images/(?P<path>.*)/$', django_static.serve, 
+        {'document_root': settings.BASE_DIR + '/images'}),
+
 ]

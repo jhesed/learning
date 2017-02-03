@@ -1,0 +1,29 @@
+
+{% include 'partials/header.html' %} 
+
+<h3>Hi <i>Archive</i></h3>
+
+<h4>Articles:</h4>
+<ul>
+    {% for post in posts %}
+        <li>
+            <a href="{% url 'single' post.id %}">{{post.title}}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% if posts.has_previous %}
+    <div class="pagination">
+        <a href="?page={{posts.previous_page_number}}">Prev</a>
+    </div>
+{% endif %}
+
+Page {{posts.number}} of {{posts.paginator.num_pages}}
+
+{% if posts.has_next %}
+    <div class="pagination">
+        <a href="?page={{posts.next_page_number}}">Next</a>
+    </div>
+{% endif %}
+
+{% include 'partials/footer.html' %}
