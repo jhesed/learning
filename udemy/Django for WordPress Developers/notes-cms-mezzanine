@@ -1,0 +1,19 @@
+
+# Notes for mezzanine
+# Author: Jhesed D. Tacadena
+# Date: 2017-02-06
+
+# Note, there is also a comment management system
+# called Disqus
+# There are also twitter oauth, google analytics etc.
+# readily available
+
+# Installation
+pip install --index-url=http://pypi.python.org/simple/ --trusted-host pypi.python.org mezzanine
+mezzanine-project myproject
+python manage.py createdb
+python manage.py runserver
+
+# Creating template mezzanine style, this will override default mezzanine templates
+python manage.py collecttemplate -t base.html # or the template name
+python manage.py collecttemplates  # Override all templates

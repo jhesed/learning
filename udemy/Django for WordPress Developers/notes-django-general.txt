@@ -1,0 +1,33 @@
+# Notes on Django Setup
+# Author: Jhesed D. Tacadena
+# Date: February 1, 2017
+# Quite useful link for Django packages:
+#   - https://djangopackages.org/
+#   - Example: is Mezzanine CMS package 
+
+
+# Virtual environment setup
+python -m virtualenv envtest
+
+# note: envtest here refers to the name of the virtual environment
+source envtest/bin/activate  # Linux/Mac
+envtest/Scripts/activate    # Windows
+
+# Installing Django
+pip install --index-url=http://pypi.python.org/simple/ --trusted-host pypi.python.org Django==1.10
+
+# This is amazing shortcut for installing dependencies
+# which will automatically install every library listed in it
+pip install -r requirements.txt
+
+# Django commands
+django-admin startproject Blog  # Create project Blog
+python manage.py migrate  # Migrate content of settings.py
+python manage.py createsuperuser # Access admin page on http://127.0.0.1:8000/admin
+# Call this when creating/updating a model. It will prepare migration files. 
+# Then call migrate again
+python manage.py makemigrations <appname-not required> 
+
+python manage.py startapp blog
+
+python manage.py runserver
