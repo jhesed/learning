@@ -7,6 +7,7 @@
 # called Disqus
 # There are also twitter oauth, google analytics etc.
 # readily available
+# bootswatch.com # useful for design
 
 # Installation
 pip install --index-url=http://pypi.python.org/simple/ --trusted-host pypi.python.org mezzanine
@@ -17,3 +18,23 @@ python manage.py runserver
 # Creating template mezzanine style, this will override default mezzanine templates
 python manage.py collecttemplate -t base.html # or the template name
 python manage.py collecttemplates  # Override all templates
+
+# js: grunt: used for .scss and .less files. Instead of using css directly
+# grunt task manager dynamically generates css from scss and less files.
+# Dependent on node.js and ruby
+# http://ryanchristiani.com
+# install node first
+# install ruby as well for scss
+
+# grunt:
+# create a package.json (I put it in assets folder)
+# Then simply run `npm install` in the same directory of package.json
+# Refer here for complete instruction: http://ryanchristiani.com/getting-started-with-grunt-and-sass/
+
+# npm means node (js) package manager, install grunt to be able to use it via command line
+# npm install -g grunt-cli
+
+# run to start watching:
+# grunt
+# try installig using `gem install sass` if warning is encountered
+
