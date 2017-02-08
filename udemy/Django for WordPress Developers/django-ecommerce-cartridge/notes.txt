@@ -1,0 +1,9 @@
+# Extends mezzanine CMS
+
+$ pip install -U cartridge
+$ mezzanine-project -a cartridge project_name
+$ cd project_name
+$ python manage.py createdb --noinput  # or don't use --noinput to set username and password
+$ python manage.py runserver
+
+# Needs to pip install `bleach` and sanitizer `packages`
