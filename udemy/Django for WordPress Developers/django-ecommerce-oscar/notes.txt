@@ -1,0 +1,7 @@
+# Author: Jhesed Tacadena
+# Date: 2017-02-07
+# Refer to `http://django-oscar.readthedocs.io/en/releases-1.1/internals/getting_started.html` for more details
+
+$ mkvirtualenv oscar
+$ pip install django-oscar
+$ django-admin.py startproject frobshop
